@@ -1,0 +1,5 @@
+# Ignore output diff files
+diff_output.txt
+unified_diff.txt
+*.diff
+*.log
