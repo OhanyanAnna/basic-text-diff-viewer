@@ -1,0 +1,5 @@
+This is a SAMPLE text file.
+It contains several lines of content.
+There are extra spaces here.    
+This line is present only in file1.
+CaseSensitiveWord
