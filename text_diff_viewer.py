@@ -3,7 +3,7 @@ import difflib
 import argparse
 from colorama import Fore, Style, init
 
-# Initialize colorama for colored terminal output
+
 init(autoreset=True)
 
 def normalize_lines(lines, ignore_case, ignore_whitespace):
@@ -35,7 +35,7 @@ def compare_files(file1_path, file2_path, ignore_case=False, ignore_whitespace=F
     f1_norm = normalize_lines(f1_lines, ignore_case, ignore_whitespace)
     f2_norm = normalize_lines(f2_lines, ignore_case, ignore_whitespace)
 
-    # Use unified diff if requested
+    
     if use_unified:
         diff = difflib.unified_diff(
             f1_norm, f2_norm,
@@ -48,12 +48,11 @@ def compare_files(file1_path, file2_path, ignore_case=False, ignore_whitespace=F
 
     print(Fore.CYAN + f"\nComparing '{file1_path}' and '{file2_path}':\n" + Style.RESET_ALL)
 
-    result = ""  # For saving plain version to file
+    result = ""  
 
     for line in diff:
-        result += line + '\n'  # Always store plain text
+        result += line + '\n' 
 
-        # Only color output in non-unified diff mode
         if not use_unified:
             if line.startswith('+ '):
                 print(Fore.GREEN + line)
@@ -64,10 +63,9 @@ def compare_files(file1_path, file2_path, ignore_case=False, ignore_whitespace=F
             else:
                 print(line, end='')
         else:
-            # Unified diff — no coloring, just print the line
+
             print(line)
 
-    # Save to file if requested
     if output_file:
         try:
             with open(output_file, 'w') as output:
