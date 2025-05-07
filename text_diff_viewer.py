@@ -7,9 +7,7 @@ from colorama import Fore, Style, init
 init(autoreset=True)
 
 def normalize_lines(lines, ignore_case, ignore_whitespace):
-    """
-    Normalize each line by applying case and whitespace rules.
-    """
+   
     normalized = []
     for line in lines:
         if ignore_whitespace:
@@ -20,10 +18,7 @@ def normalize_lines(lines, ignore_case, ignore_whitespace):
     return normalized
 
 def compare_files(file1_path, file2_path, ignore_case=False, ignore_whitespace=False, output_file=None, use_unified=False):
-    """
-    Compare two files using line-by-line or unified diff format.
-    Print to terminal with color, and optionally save to output file.
-    """
+   
     try:
         with open(file1_path, 'r') as f1, open(file2_path, 'r') as f2:
             f1_lines = f1.readlines()
